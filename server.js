@@ -29,57 +29,7 @@ app.get('/', function (req, res) {
 
 });
 
-app.get('/fetchdata', function (req, res) {
-  // try to initialize the db on every request if it's not already
-  // initialized.
-  if (!db) {
-    initDb(function(err){});
-  }
-  if (db) {
-    var col = db.collection('counts');
-	var rowCount = 0;
-	col.count(function(err, count){
-      if (err) {
-        console.log('Error running count. Message:\n'+err);
-      }
-	  rowCount = count;
-    });
-	col.find().limit(30).sort({'_id':-1}).toArray(function (err, result) {
-		console.log(result);
-      res.render('data.html', { pageCountMessage : rowCount, respData: result });
-	});
-  } else {
-    res.render('data.html', { pageCountMessage : null});
-  }
-});
 
-app.get('/pagecount', function (req, res) {
-  // try to initialize the db on every request if it's not already
-  // initialized.
-  if (!db) {
-    initDb(function(err){});
-  }
-  if (db) {
-    db.collection('counts').count(function(err, count ){
-      res.send('{ pageCount: ' + count + '}');
-    });
-  } else {
-    res.send('{ pageCount: -1 }');
-  }
-});
-
-app.get('/fetchdatafrommongo', function(req,res) {
-  if (!db) {
-    initDb(function(err){});
-  }
-  if (db) {
-    db.collection('counts').find().limit(30).sort({'_id':-1}).toArray(function (err, result) {
-      res.json(result);
-	});
-  } else {
-    res.send('{ pageCount: -1 }');
-  }
-});
 
 // error handling
 app.use(function(err, req, res, next){
@@ -87,9 +37,6 @@ app.use(function(err, req, res, next){
   res.status(500).send('Something bad happened!');
 });
 
-initDb(function(err){
-  console.log('Error connecting to Mongo. Message:\n'+err);
-});
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
