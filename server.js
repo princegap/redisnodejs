@@ -5,7 +5,7 @@ var express = require('express'),
     
 var redis = require("redis"),
     redisClient = redis.createClient(process.env.REDIS_PORT, process.env.REDIS_IP);
-
+	redisClient.auth(process.env.REDIS_PASSWORD);
 redisClient.on("error", function (err) {
   console.error("REDIS Error " + err);
 });
