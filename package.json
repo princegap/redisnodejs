@@ -1,31 +1,35 @@
 {
-  "requires": true,
-  "lockfileVersion": 1,
+  "name": "nodejs-ex",
+  "version": "0.0.1",
+  "description": "Node.js sample app for OpenShift 3",
+  "main": "server.js",
   "dependencies": {
-    "double-ended-queue": {
-      "version": "2.1.0-0",
-      "resolved": "https://registry.npmjs.org/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz",
-      "integrity": "sha1-ED01J/0xUo9AGIEwyEHv3XgmTlw="
-    },
-    "redis": {
-      "version": "2.8.0",
-      "resolved": "https://registry.npmjs.org/redis/-/redis-2.8.0.tgz",
-      "integrity": "sha512-M1OkonEQwtRmZv4tEWF2VgpG0JWJ8Fv1PhlgT5+B+uNq2cA3Rt1Yt/ryoR+vQNOQcIEgdCdfH0jr3bDpihAw1A==",
-      "requires": {
-        "double-ended-queue": "^2.1.0-0",
-        "redis-commands": "^1.2.0",
-        "redis-parser": "^2.6.0"
-      }
-    },
-    "redis-commands": {
-      "version": "1.4.0",
-      "resolved": "https://registry.npmjs.org/redis-commands/-/redis-commands-1.4.0.tgz",
-      "integrity": "sha512-cu8EF+MtkwI4DLIT0x9P8qNTLFhQD4jLfxLR0cCNkeGzs87FN6879JOJwNQR/1zD7aSYNbU0hgsV9zGY71Itvw=="
-    },
-    "redis-parser": {
-      "version": "2.6.0",
-      "resolved": "https://registry.npmjs.org/redis-parser/-/redis-parser-2.6.0.tgz",
-      "integrity": "sha1-Uu0J2srBCPGmMcB+m2mUHnoZUEs="
-    }
-  }
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.16",
+    "morgan": "^1.7.0",
+    "object-assign":"4.1.0",
+	"redis": "*"
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/princegap/nodejs-ex.git"
+  },
+  "author": "Prince Aiyathurai <PrinceA@hcl.com>",
+  "license": "NA",
+  "bugs": {
+    "url": "http://github.com/sclorg/princegap/issues"
+  },
+  "homepage": "http://github.com/princegap/nodejs-ex"
 }
