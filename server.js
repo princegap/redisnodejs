@@ -3,6 +3,13 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
     
+var redis = require("redis"),
+    redisClient = redis.createClient(process.env.REDIS_PORT, process.env.REDIS_IP);
+
+redisClient.on("error", function (err) {
+  console.error("REDIS Error " + err);
+});
+
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);

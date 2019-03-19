@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/princegap/nodejs-ex.git"
+    "url": "http://github.com/princegap/redisnodejs.git"
   },
   "author": "Prince Aiyathurai <PrinceA@hcl.com>",
   "license": "NA",
   "bugs": {
-    "url": "http://github.com/sclorg/princegap/issues"
+    "url": "http://github.com/princegap/issues"
   },
-  "homepage": "http://github.com/princegap/nodejs-ex"
+  "homepage": "http://github.com/princegap/redisnodejs.git"
 }
